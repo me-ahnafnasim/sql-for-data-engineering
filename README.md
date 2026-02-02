@@ -1,22 +1,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 🗄️ SQL Learning Journey — Structured Mastery of Databases
 
 *A structured path from DB theory (ER diagrams, normalization) to hands-on SQL Server practice. Designed for systematic mastery.*
@@ -141,7 +125,7 @@ DATABASE/
 
 ## 🙏 Credits & Acknowledgements
 
-This YT channel was created through immersive learning inspired by **[Datawithbaraa](https://www.youtube.com/@Datawithbaraa)**. His clear, structured approach to database concepts and SQL practice provided the foundational framework for this learning journey. Thank you for making complex topics accessible and actionable.
+The Datawithbaraa was created through immersive learning inspired by **[Datawithbaraa](https://www.youtube.com/@Datawithbaraa)**. His clear, structured approach to database concepts and SQL practice provided the foundational framework for this learning journey. Thank you for making complex topics accessible and actionable.
 
 > *"Learning is not about consuming content—it's about reconstructing knowledge in your own structure."*  
 > — This repository embodies that philosophy through deliberate documentation and practice.
@@ -173,10 +157,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-> ✨ **Note**: Replace `Ahnaf Nasim` with your actual name/GitHub handle before publishing.  
-> Educational content inspired by Datawithbaraa is transformed here into original documentation—this license applies to *this repository's structure and notes*, not to third-party resources in `/resources/`.
-
 ---
 
 ## 📌 Quick Reference Cheat Sheet
