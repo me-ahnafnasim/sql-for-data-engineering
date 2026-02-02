@@ -1,4 +1,22 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 🗄️ SQL Learning Journey — Structured Mastery of Databases
 
 *A structured path from DB theory (ER diagrams, normalization) to hands-on SQL Server practice. Designed for systematic mastery.*
@@ -57,26 +75,24 @@ DATABASE/
 
 ### ✅ Step 1: Install SQL Server Management Studio (SSMS)
 
-> **Note**: The latest stable version is **SSMS 19.x** (released 2023–2024). Microsoft does not use "SSMS 21" naming—this likely refers to SQL Server 2022 compatibility. SSMS 19.x fully supports SQL Server 2022.
+> **Note**: Microsoft does not use "SSMS 21" naming. The latest stable version is **SSMS 19.x** (fully compatible with SQL Server 2022). This guide covers the current official release.
 
 #### Installation Steps:
 1. **Download SSMS**  
-   → Go to official download page: https://aka.ms/ssmsfullsetup  
+   → Official download: https://aka.ms/ssmsfullsetup  
    → Click **"Download SQL Server Management Studio (SSMS)"**
 
 2. **Run Installer**  
-   → Locate downloaded `SSMS-Setup-ENU.exe`  
-   → Right-click → **Run as administrator**  
+   → Locate `SSMS-Setup-ENU.exe` → Right-click → **Run as administrator**  
    → Accept license terms → Click **Install**
 
 3. **Complete Setup**  
-   → Wait for installation (~5–10 mins)  
-   → Click **Close** when finished  
-   → *Optional but recommended*: Restart your computer
+   → Wait 5–10 minutes for installation  
+   → Click **Close** → *Recommended*: Restart your computer
 
 4. **Verify Installation**  
-   → Press `Win + S` → Type "SSMS" → Open **SQL Server Management Studio**  
-   → Version check: `Help → About` → Should show **v19.x.x**
+   → Press `Win + S` → Type "SSMS" → Open application  
+   → Check version: `Help → About` → Should display **v19.x.x**
 
 ---
 
@@ -84,27 +100,26 @@ DATABASE/
 
 | Scenario | Server Name | Authentication | Notes |
 |----------|-------------|----------------|-------|
-| **Local default instance** | `localhost` or `.` | Windows Authentication | Use this if you installed SQL Server locally |
-| **No local SQL Server?** | — | — | Use **Azure Data Studio** (free) or install SQL Server Express first |
+| **Local default instance** | `localhost` or `.` | Windows Authentication | Requires SQL Server installed locally |
+| **SQL Server Express** | `localhost\SQLEXPRESS` | Windows Authentication | Default instance name for Express edition |
 
 > 💡 **Don't have SQL Server installed?**  
-> → Download **SQL Server 2022 Express (free)**: https://www.microsoft.com/sql-server/sql-server-downloads  
-> → During install: Select "Basic" → Note the **instance name** (usually `SQLEXPRESS`)  
-> → Connect in SSMS using: `localhost\SQLEXPRESS`
+> → Download free **SQL Server 2022 Express**: https://www.microsoft.com/sql-server/sql-server-downloads  
+> → During install: Select "Basic" → Note your instance name → Connect via SSMS using that name
 
 ---
 
 ### ✅ Step 3: Restore Practice Databases
 
 ```sql
--- Method 1: Using .bak files (recommended)
--- In SSMS: Right-click Databases → Restore Database → Device → Add .bak file
+-- Method 1: Restore from .bak file (recommended)
+-- In SSMS: Right-click Databases → Restore Database → Device → Browse → Select .bak file → OK
 
--- Method 2: Run initialization scripts
--- Open init-sqlserver-mydatabase.sql in SSMS → Click "Execute" (F5)
+-- Method 2: Run initialization script
+-- Open init-sqlserver-mydatabase.sql → Click "Execute" (F5)
 ```
 
-> 📌 **Critical Tip**: Keep `Execution order.pdf` open while practicing—it shows the *logical* query execution sequence (`FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY`), which differs from written order.
+> 📌 **Pro Tip**: Keep `Execution order.pdf` open while practicing—it reveals the *logical* query execution sequence (`FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY`), which differs from written syntax order.
 
 ---
 
@@ -117,10 +132,50 @@ DATABASE/
    → Solve problems in `Theoretical Exercises/` *before* writing code
 
 3. **Hands-On Practice**  
-   → Install SSMS (above) → Restore `.bak` files → Experiment with PDF guides
+   → Install SSMS → Restore `.bak` files → Experiment using PDF guides
 
 4. **Extend Knowledge**  
-   → Explore projects in `resources/` (analytics, warehousing)
+   → Explore analytics/warehouse projects in `resources/`
+
+---
+
+## 🙏 Credits & Acknowledgements
+
+This YT channel was created through immersive learning inspired by **[Datawithbaraa](https://www.youtube.com/@Datawithbaraa)**. His clear, structured approach to database concepts and SQL practice provided the foundational framework for this learning journey. Thank you for making complex topics accessible and actionable.
+
+> *"Learning is not about consuming content—it's about reconstructing knowledge in your own structure."*  
+> — This repository embodies that philosophy through deliberate documentation and practice.
+
+---
+
+## 📜 License
+
+```
+MIT License
+
+Copyright (c) 2026 Ahnaf Nasim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+> ✨ **Note**: Replace `Ahnaf Nasim` with your actual name/GitHub handle before publishing.  
+> Educational content inspired by Datawithbaraa is transformed here into original documentation—this license applies to *this repository's structure and notes*, not to third-party resources in `/resources/`.
 
 ---
 
@@ -130,7 +185,7 @@ DATABASE/
 |---------|---------------|
 | **Keys** | `Key.md` + `typesOfKeys.jpg` + `key.jpg` |
 | **Joins** | `relationshipVSjoin.md` + `img-type-of-joins.png` + `Join.pdf` |
-| **Normalization** | `normalization1.png` → `normalization2.png` (sequential) |
+| **Normalization** | `normalization1.png` → `normalization2.png` (study sequentially) |
 | **ER Diagrams** | `ER-diagram-relationalDatabase.md` + `ERD_Symbols_and_Notations.jpg` |
 
 ---
