@@ -127,9 +127,6 @@ DATABASE/
 
 The Datawithbaraa was created through immersive learning inspired by **[Datawithbaraa](https://www.youtube.com/@Datawithbaraa)**. His clear, structured approach to database concepts and SQL practice provided the foundational framework for this learning journey. Thank you for making complex topics accessible and actionable.
 
-> *"Learning is not about consuming content—it's about reconstructing knowledge in your own structure."*  
-> — This repository embodies that philosophy through deliberate documentation and practice.
-
 ---
 
 ## 📜 License
