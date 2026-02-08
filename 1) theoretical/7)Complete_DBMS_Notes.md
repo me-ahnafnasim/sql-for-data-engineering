@@ -747,7 +747,7 @@ Normalization is the systematic process of organizing data into logical, non-red
 
 ### Core Requirements
 A table satisfies 1NF when:
-- Every attribute contains **atomic (indivisible) values** — no lists, sets, or multi-values in a single cell
+- Every attribute(column) contains **atomic (indivisible) values** — no lists, sets, or multi-values in a single cell
 - There are **no repeating groups** — avoid patterns like `Phone1`, `Phone2`, `Phone3`
 - Each row is **uniquely identifiable** via a primary key
 
