@@ -1518,6 +1518,125 @@ Only changes **after `sp1`** are undone.
 - Ensures **reliability** in case of failures
 - Essential for **banking, reservation systems, e-commerce**
 
+
+---
+### 15.7 Referential integrity and types:
+Referential integrity--> is the logical dependency of a foreign key on a primary key.
+Referential integrity--> in SQL is a rule that keeps relationships between tables accurate and consistent.
+
+"""
+Referential integrity
+ensures that relationships between tables remain consistent, requiring that foreign keys match existing primary keys. It prevents orphan records by restricting actions that break links, such as deleting or updating parent records, often implemented via CASCADE, SET NULL, or NO ACTION rules
+"""
+
+type of Referential integrity(Referential actions):
+NO ACTION = Block change
+RESTRICT = child rows protect the parent
+CASCADE = child rows follow the parent, Parent changes → child changes automatically
+SET NULL = child rows survive, relationship disappears(Keep child, remove the relationship(FK becomes NULL))
+
+
+
+```markdown
+# CASCADE: DELETE vs DROP
+
+## 1. Example Tables
+
+**Parent:** `departments`
+| dept_id (PK) | dept_name   |
+| :---         | :---        |
+| 1            | Engineering |
+| 2            | Marketing   |
+
+**Child:** `employees` (FK `dept_id` refs `departments`)
+| emp_id (PK) | emp_name | dept_id (FK) |
+| :---        | :---     | :---         |
+| 101         | Alice    | 1            |
+| 102         | Bob      | 1            |
+| 103         | Charlie  | 2            |
+
+---
+
+## 2. ON DELETE CASCADE (Data Level)
+
+**Command:**
+```sql
+DELETE FROM departments WHERE dept_id = 1;
+```
+
+**What Happens:**
+1. Deletes "Engineering" row from `departments`.
+2. **Automatically deletes** Alice and Bob from `employees` because they referenced ID 1.
+3. Charlie remains (references ID 2).
+
+> **Result:** Cleans up **rows** to prevent orphaned data.
+
+---
+
+## 3. DROP TABLE ... CASCADE (Structure Level)
+
+**Command:**
+```sql
+DROP TABLE departments CASCADE;
+```
+
+**What Happens:**
+1. Destroys the entire `departments` table.
+2. **Automatically drops** the Foreign Key constraint in `employees` that depended on it.
+3. `employees` table remains, but the link to `departments` is gone.
+
+> **Result:** Removes **objects/constraints** to allow schema deletion.
+
+---
+
+## Summary
+
+| Feature | `ON DELETE CASCADE` | `DROP ... CASCADE` |
+| :--- | :--- | :--- |
+| **Scope** | Data (Rows) | Structure (Tables/Constraints) |
+| **Action** | Deletes child **records** | Drops dependent **constraints** |
+| **Analogy** | Firing a manager fires their team. | Demolishing a building removes its signs. |
+```
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ### 15.9 One-Line Exam Definitions
