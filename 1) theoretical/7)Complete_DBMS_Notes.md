@@ -1537,7 +1537,6 @@ SET NULL = child rows survive, relationship disappears(Keep child, remove the re
 
 
 
-```markdown
 # CASCADE: DELETE vs DROP
 
 ## 1. Example Tables
@@ -1596,44 +1595,6 @@ DROP TABLE departments CASCADE;
 | **Scope** | Data (Rows) | Structure (Tables/Constraints) |
 | **Action** | Deletes child **records** | Drops dependent **constraints** |
 | **Analogy** | Firing a manager fires their team. | Demolishing a building removes its signs. |
-```
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
