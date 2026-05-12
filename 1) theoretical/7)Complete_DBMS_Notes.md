@@ -1385,11 +1385,6 @@ A transaction moves through different states:
 
 ---
 
-
-<!-- markdownlint-disable-next-line MD033 -->
-<div align="center"><img src="" alt="kernel relation with others" style="width: 300px; height: 200px;" /></div>
-
-
 Transactions in DBMS follow **ACID properties**:
 * Topic: Databases, ACID properties
 
@@ -1402,8 +1397,8 @@ Transactions in DBMS follow **ACID properties**:
   1. Atomicity
      Shortcut: "All or Nothing"
 
-  * A transaction must complete fully, or not happen at all.
-  * If one part fails, the whole transaction is rolled back.
+     * A transaction must complete fully, or not happen at all.
+     * If one part fails, the whole transaction is rolled back.
 
   Example:
 
@@ -1416,6 +1411,8 @@ Transactions in DBMS follow **ACID properties**:
   * If Step 2 fails, Step 1 must also be undone.
 
   * So either both happen, or neither happens.
+ 
+    
 
   2. Consistency
      Shortcut: "Keep Data Correct"
