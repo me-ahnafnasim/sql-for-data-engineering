@@ -1363,26 +1363,12 @@ CROSS JOIN      :   A × B           → Every possible pair (Cartesian product)
 
 ## 15. Transactions
 
-![Transaction Diagram](ChatGPT Image Dec 12, 2025, 10_49_14 PM.png)
 
 ### 15.1 What is a Transaction?
 
 A **transaction** in a DBMS is a **single logical unit of work** that consists of one or more database operations (read, write, update, delete). It must be **executed completely or not executed at all**.
 
 > A transaction is a set of operations that **either all succeed or all fail**.
-
-### 15.2 Example of a Transaction
-
-**Bank Transfer Scenario**  
-Transfer ₹1000 from Account A to Account B:
-
-1. Read balance of Account A
-2. Deduct ₹1000 from Account A
-3. Read balance of Account B
-4. Add ₹1000 to Account B
-
-✔ All four steps together form **one transaction**  
-✖ If any step fails, the entire transaction is cancelled
 
 ---
 
@@ -1399,36 +1385,98 @@ A transaction moves through different states:
 
 ---
 
-### 15.4 ACID Properties of Transactions
 
 <!-- markdownlint-disable-next-line MD033 -->
 <div align="center"><img src="" alt="kernel relation with others" style="width: 300px; height: 200px;" /></div>
 
 
 Transactions in DBMS follow **ACID properties**:
+* Topic: Databases, ACID properties
 
-#### 1. Atomicity
-- All operations execute completely or none do
-- No partial updates
+* Simple explanation: ACID is a set of 4 properties that make database transactions reliable and safe. A transaction is a group of operations treated as one unit.
 
-👉 *Example:* Money is either debited and credited, or not at all
+* Step-by-step solution/example:
 
-#### 2. Consistency
-- Database moves from one valid state to another
-- Integrity constraints are maintained
+  ACID stands for:
 
-👉 *Example:* Account balance never becomes negative
+  1. Atomicity
+     Shortcut: "All or Nothing"
 
-#### 3. Isolation
-- Transactions execute independently
-- Intermediate results are not visible to others
+  * A transaction must complete fully, or not happen at all.
+  * If one part fails, the whole transaction is rolled back.
 
-👉 *Example:* Two users transferring money don't interfere
+  Example:
 
-#### 4. Durability
-- Once committed, changes persist even after failure
+  * You transfer $100 from Account A to Account B.
 
-👉 *Example:* Data remains saved after power failure
+  * Step 1: subtract $100 from A
+
+  * Step 2: add $100 to B
+
+  * If Step 2 fails, Step 1 must also be undone.
+
+  * So either both happen, or neither happens.
+
+  2. Consistency
+     Shortcut: "Keep Data Correct"
+
+  * A transaction must take the database from one valid state to another valid state.
+  * It must follow all rules, constraints, and relationships.
+
+  Example:
+
+  * If a table says balance cannot be negative, a transaction cannot leave a balance below 0.
+
+  * If a foreign key must match an existing record, the transaction must preserve that rule.
+
+  3. Isolation
+     Shortcut: "Work Separately"
+
+  * Multiple transactions happening at the same time should not interfere with each other.
+  * One transaction should behave as if it is running alone.
+
+  Example:
+
+  * Two users try to book the last seat at the same time.
+
+  * Isolation helps prevent both transactions from booking the same seat.
+
+  4. Durability
+     Shortcut: "Saved Forever"
+
+  * Once a transaction is committed, the result is permanently stored.
+  * Even if power fails or the system crashes, the committed data should not be lost.
+
+  Example:
+
+  * If you place an online order and the transaction is committed, the order should still exist after a restart.
+
+* Key points for exam:
+
+  * A = Atomicity = All or Nothing
+  * C = Consistency = Keep Data Correct
+  * I = Isolation = Work Separately
+  * D = Durability = Saved Forever
+  * ACID is used to ensure reliable transaction processing in DBMS.
+  * These properties are especially important in banking, reservation systems, and e-commerce.
+
+* Common mistakes:
+
+  * Confusing consistency with “same data everywhere.” In ACID, consistency means database rules remain valid.
+  * Thinking isolation means only one user can use the database. It means concurrent transactions should not conflict incorrectly.
+  * Thinking durability happens before commit. Durability matters after commit.
+
+* Practice question:
+  A bank transfer subtracts money from one account but the system crashes before adding it to the other account. Which ACID property says the whole transaction must be undone?
+
+Answer: Atomicity
+
+Easy memory shortcut:
+`A = All or Nothing`
+`C = Correct Rules`
+`I = Independent Transactions`
+`D = Done Permanently`
+
 
 ---
 
